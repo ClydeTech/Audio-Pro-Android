@@ -6,9 +6,6 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.ui.AppBarConfiguration;
-
-import com.clydetechnology.radioplayer.databinding.ActivityMainBinding;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         final SeekBar volumeBar = findViewById(R.id.volumeBar);
         final LinearLayout stationsContainer = findViewById(R.id.stationsContainer);
 
+        List<Station> stations = getStations();
+
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -44,25 +43,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-                // Build list of stations
-                List<Station> stations = new ArrayList<>();
-                try {
-                    InputStream is = getResources().openRawResource(R.raw.stations);
-                    byte[] buffer = new byte[is.available()];
-                    is.read(buffer);
-                    is.close();
 
-                    String json = new String(buffer, "UTF-8");
-                    JSONArray jsonArray = new JSONArray(json);
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        String title = jsonObject.getString("title");
-                        String url = jsonObject.getString("url");
-                        stations.add(new Station(title, url));
-                    }
-                } catch (IOException | JSONException e) {
-                    e.printStackTrace();
-                }
                 final LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT
@@ -101,5 +82,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         thread.start();
+    }
+
+    private List<Station> getStations() {
+        List<Station> stations = new ArrayList<>();
+        try {
+            InputStream is = getResources().openRawResource(R.raw.stations);
+            byte[] buffer = new byte[is.available()];
+            is.read(buffer);
+            is.close();
+
+            String json = new String(buffer, "UTF-8");
+            JSONArray jsonArray = new JSONArray(json);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String title = jsonObject.getString("title");
+                String url = jsonObject.getString("url");
+                stations.add(new Station(title, url));
+            }
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+        }
+        return stations;
     }
 }
