@@ -1,0 +1,66 @@
+[
+  {
+    "title": "BBC Radio 1",
+    "url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_one.m3u8"
+  },
+  {
+    "title": "BBC Radio 1Xtra",
+    "url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_1xtra.m3u8"
+  },
+  {
+    "title": "BBC Radio 1Dance",
+    "url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_one_dance.m3u8"
+  },
+  {
+    "title": "BBC Radio 1Relax",
+    "url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_one_relax.m3u8"
+  },
+  {
+    "title": "BBC Radio 2",
+    "url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_two.m3u8"
+  },
+  {
+    "title": "BBC Radio 3",
+    "url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_three.m3u8"
+  },
+  {
+    "title": "BBC Radio 4",
+    "url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_fourfm.m3u8"
+  },
+  {
+    "title": "BBC Radio 4 LW",
+    "url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_fourlw.m3u8"
+  },
+  {
+    "title": "BBC Radio 4 Extra",
+    "url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_four_extra.m3u8"
+  },
+  {
+    "title": "BBC Radio 5 live",
+    "url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_five_live.m3u8"
+  },
+  {
+    "title": "BBC Radio 6 Music",
+    "url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_6music.m3u8"
+  },
+  {
+    "title": "BBC Radio 5 Live sports extra",
+    "url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_five_live_sports_extra.m3u8"
+  },
+  {
+    "title": "BBC Radio Scotland FM",
+    "url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_scotland_fm.m3u8"
+  },
+  {
+    "title": "BBC Radio Scotland MW",
+    "url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_scotland_mw.m3u8"
+  },
+  {
+    "title": "Clyde 1",
+    "url": "http://www.radiofeeds.net/playlists/bauerflash.pls?station=clyde1-mp3"
+  },
+  {
+    "title": "LBC",
+    "url": "http://icecast.thisisdax.com/LBCLondonMP3.m3u"
+  }
+]
