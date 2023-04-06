@@ -1,6 +1,7 @@
 package com.clydetechnology.radioplayer;
 
-import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Looper;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,18 +12,37 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
-
-public class RunCommandTask extends AsyncTask<Void, Void, String> {
+public class RunCommandTask {
 
     private String command;
+    private Executor executor;
+    private Handler handler;
 
     public RunCommandTask(String cmd) {
         command = cmd;
+        executor = Executors.newSingleThreadExecutor();
+        handler = new Handler(Looper.getMainLooper());
     }
 
-    @Override
-    protected String doInBackground(Void... voids) {
+    public void execute() {
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                String result = runCommand();
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        onPostExecute(result);
+                    }
+                });
+            }
+        });
+    }
+
+    private String runCommand() {
         try {
             String url = "http://192.168.0.5/httpapi.asp?command=" + command;
 
@@ -63,8 +83,7 @@ public class RunCommandTask extends AsyncTask<Void, Void, String> {
         }
     }
 
-    @Override
-    protected void onPostExecute(String result) {
+    private void onPostExecute(String result) {
         if (result != null) {
             try {
                 JSONObject status = new JSONObject(result);
